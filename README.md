@@ -43,6 +43,7 @@ passport.use(new FacebookStrategy({
   return done(null, profile);
 }));
 ```
+// DONE
 
 ##Step 2: Define your auth endpoints
 Create two routes that will handle your Facebook auth.
@@ -52,6 +53,7 @@ This route simply implements the passport.authenticate method, passing 'facebook
 
 ####GET /auth/facebook/callback
 This route needs to pass the passport.authenticate method again, except we also need to pass in an object that passes the successRedirect and failureRedirect paths.
+// DONE
 
 ##Step 3: Create the deserialize/serializer methods on passport.
 Since you won't be doing anything further than just passing objects to/from passport and the session, we just need bare bones methods here:
@@ -65,6 +67,7 @@ passport.deserializeUser(function(obj, done) {
   done(null, obj);
 });
 ```
+// DONE
 
 ###Step 4: Create viewer endpoint
 Now we're going to create an endpoint that returns the current logged in user's Facebook profile data.
@@ -73,5 +76,6 @@ Now we're going to create an endpoint that returns the current logged in user's 
 Create this route in your server.js that returns the user's Facebook profile data. The data is stored in `req.user` if you've set everything up correctly. Return a JSON representation of this data at the `/me` endpoint.
 
 Use Postman to verify that you can in fact get the JSON data from the `/me` endpoint.
+// DONE
 
 
